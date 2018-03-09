@@ -31,7 +31,7 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 myConfig = defaultConfig { modMask = mod1Mask
   , layoutHook = myLayout
   , workspaces = myWorkspaces
-  , terminal = "alacritty"
+  , terminal = "st"
 --  , borderWidth = 0
 --  , normalBorderColor="#000000"
 --  , focusedBorderColor="#e6f6ff"
