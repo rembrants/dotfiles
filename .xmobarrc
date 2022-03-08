@@ -1,5 +1,5 @@
 Config {
-    font = "xft:bebas kai:size=9"
+    font = "xft:monospace:size=9"
     , bgColor = "#000000"
     , fgColor = "#999999"
     , position = Top
