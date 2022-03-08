@@ -97,7 +97,7 @@ ram()
 }
 clock()
 {
-	mtime=$(date +'%H:%M')
+	mtime=$(date +'%l:%M')
 	myear=$(date +'%Y-%m-')
 	mday=$(date +'%d')
 	echo "#[fg=$C5]#[bg=$C4] $mtime #[fg=$C6]$myear#[fg=$C5]$mday #[fg=$C6]"
