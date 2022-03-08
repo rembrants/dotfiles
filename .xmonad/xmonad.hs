@@ -4,21 +4,12 @@ import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.EZConfig
 import XMonad.Layout.NoBorders
-import XMonad.Layout.SimplestFloat
 
 -- The main function.
 main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
---	{ layoutHook = lessBorders OnlyFloat $ myLayout 
---                 , borderWidth = 4
---                 , normalBorderColor  = "#000000i"
---                 , focusedBorderColor = "#f48024"
---                 }
-
--- Command to launch the bar.
--- myBar = "xmobar"
 myBar = "xmobar"
 
-myWorkspaces = ["1:main*", "2:shell", "3:log", "4:storage-log", "5:program-log"]
+myWorkspaces = ["1", "2", "3", "4", "5"]
 
 -- Custom PP, configure it as you like. It determines what is being written to the bar.
 myPP = xmobarPP { ppCurrent = xmobarColor "#00d800" "" . wrap "" "" }
@@ -31,21 +22,14 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 myConfig = defaultConfig { modMask = mod1Mask
   , layoutHook = myLayout
   , workspaces = myWorkspaces
-  , terminal = "st"
---  , borderWidth = 0
---  , normalBorderColor="#000000"
---  , focusedBorderColor="#e6f6ff"
+  , terminal = "xterm"
   }
   `additionalKeysP`
   [
---("M-p", spawn "rofi -show run -lines 5 -width 100 -padding 100 -fullscreen -opacity '85' -font 'roboto 50' separator-style 'none'")
-  ("M-p", spawn "dmenu_run -b -nb '#000000' -nf '#333333' -sb '#000000' -sf '#ffffff' -fn 'bebas kai-9' -p '$'")
- , ("M-m", spawn "xinput -enable 11 && xinput -enable 12")
- , ("M-S-m", spawn "xinput -disable 11 && xinput -disable 12")
+  ("M-p", spawn "rofi -show run -theme dmenu")
   ]
 
 myLayout = tiled ||| Mirror tiled ||| noBorders Full 
---myLayout = tiled ||| Mirror tiled ||| noBorders Full ||| noBorders simplestFloat 
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
