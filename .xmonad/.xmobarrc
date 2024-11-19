@@ -1,4 +1,4 @@
-Config { font = "-*-lucidatypewriter-medium-*-*-*-10-*-*-*-*-*-*-*"
+Config { font = "lucidatypewriter 9"
        , additionalFonts = []
        , borderColor = "black"
        --, border = TopB
@@ -15,7 +15,7 @@ Config { font = "-*-lucidatypewriter-medium-*-*-*-10-*-*-*-*-*-*-*"
        , pickBroadest = False
        , persistent = False
        , hideOnStart = False
-       , iconRoot = ".config/xmonad/xpm" -- default: "."
+       , iconRoot = "/home/jedi/.xmonad/xpm" -- default: "."
        , allDesktops = True
        , overrideRedirect = True
        , commands = [ Run Weather "WIII" ["-t","<station>: <tempC>°C",
@@ -47,11 +47,13 @@ Config { font = "-*-lucidatypewriter-medium-*-*-*-10-*-*-*-*-*-*-*"
                                        -- charged status
                                        , "-i"	, "<fc=#006000>Charged</fc>"
                              ] 50
-                    , Run Date "%a %b %_d %Y %H:%M " "date" 10
+                    , Run Date "%A, %B %_d, %Y %H:%M " "date" 10
 		    , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "<icon=Xmonad16.xpm/>| %uname% | %StdinReader% }\
-                    \{ %enp0s20f0u1% - %wlp0s20f3% | %battery% | %cpu% | %memory% * %swap% | %WIII% | <fc=#ee9a00>%date%</fc>"
+--       , template = "<icon=Xmonad16.xpm/>| %uname% | %StdinReader% }\
+--                    \{ %enp0s20f0u1% - %wlp0s20f3% | %battery% | %cpu% | %memory% * %swap% | %WIII% | <fc=#ee9a00>%date%</fc>"
+       , template = "<icon=Xmonad16.xpm/> %StdinReader% }\
+                    \{ <fc=#ee9a00>%date%</fc>"
        }
